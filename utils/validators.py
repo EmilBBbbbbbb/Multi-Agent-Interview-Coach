@@ -13,7 +13,9 @@ class RobustnessValidator:
         'код', 'code', 'программ', 'program', 'разработка', 'develop',
         'язык', 'language', 'библиотека', 'library', 'фреймворк', 'framework',
         'база данных', 'database', 'алгоритм', 'algorithm', 'тест', 'test',
-        'архитектура', 'architecture', 'проект', 'project', 'опыт', 'experience'
+        'архитектура', 'architecture', 'проект', 'project', 'опыт', 'experience',
+        'какие', 'какой', 'как', 'задач', 'работа', 'используете', 'делать',
+        'вопрос', 'испытательный'
     ]
     
     @staticmethod

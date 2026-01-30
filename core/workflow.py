@@ -112,11 +112,13 @@ class InterviewWorkflow:
         
         # --- HIDDEN REFLECTION STAGE (Internal Agent Communication) ---
         
-        # 1. Check for robustness issues
-        if self.validator.is_off_topic(user_message):
+        # 1. Check for robustness issues - но НЕ блокируем встречные вопросы
+        is_question = '?' in user_message
+        if self.validator.is_off_topic(user_message) and not is_question:
             self.state['off_topic_count'] += 1
             
-            if self.state['off_topic_count'] >= 2:
+            # Даем больше свободы - возвращаем только после 3-х попыток
+            if self.state['off_topic_count'] >= 3:
                 response = self.validator.get_redirect_message()
                 internal_thoughts = "[Observer]: Candidate going off-topic repeatedly. Redirecting."
                 self._save_turn(response, internal_thoughts, 0.0)
